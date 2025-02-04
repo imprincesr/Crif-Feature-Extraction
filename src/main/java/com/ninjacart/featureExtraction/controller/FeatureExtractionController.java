@@ -1,8 +1,8 @@
 package com.ninjacart.featureExtraction.controller;
 
-import com.ninjacart.featureExtraction.ObjectCreation;
+import com.ninjacart.featureExtraction.other.ObjectCreation;
 import com.ninjacart.featureExtraction.model.CreditBureauFeatures;
-import com.ninjacart.featureExtraction.model.featureModel.CreditReportResponse;
+import com.ninjacart.featureExtraction.other.featureModel.CreditReportResponse;
 import com.ninjacart.featureExtraction.service.FeatureExtractionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,33 +20,13 @@ import java.util.List;
 public class FeatureExtractionController {
 
     private final FeatureExtractionService featureExtractionService;
-    private final ObjectCreation objectCreation;
 
     /**
-     * Saves extracted credit bureau features.
+     * Retrieves all credit bureau features associated with a given user.
      *
-     * @return ResponseEntity containing saved features or error response.
-     */
-    @PostMapping("/api/features/save")
-    public ResponseEntity<CreditBureauFeatures> saveCreditBureauFeatures() {
-        log.info("Starting credit bureau feature extraction and saving...");
-
-        try {
-//            CreditBureauFeatures savedFeatures = featureExtractionService.processAndSaveFeatures();
-            CreditBureauFeatures savedFeatures = processAndSaveFeatures();
-            log.info("Feature extraction completed successfully. Returning response.");
-            return ResponseEntity.ok(savedFeatures);
-        } catch (Exception e) {
-            log.error("Error saving credit bureau features: {}", e.getMessage(), e);
-            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Feature extraction failed");
-        }
-    }
-
-    /**
-     * Fetches all credit bureau features associated with a user.
-     *
-     * @param userId Unique identifier of the user.
-     * @return List of CreditBureauFeatures or error if not found.
+     * @param userId The unique identifier of the user whose credit bureau features need to be fetched.
+     * @return A ResponseEntity containing a list of CreditBureauFeatures if found, otherwise an appropriate HTTP error response.
+     * @throws ResponseStatusException If the userId is invalid or no features are found.
      */
     @GetMapping("/api/features/users/{userId}/v1")
     public ResponseEntity<List<CreditBureauFeatures>> getAllCreditBureauFeatures(@PathVariable Long userId) {
@@ -67,10 +47,11 @@ public class FeatureExtractionController {
     }
 
     /**
-     * Fetches the latest credit bureau feature entry for a user.
+     * Retrieves the latest credit bureau feature entry for a given user ID.
      *
-     * @param userId Unique identifier of the user.
-     * @return The latest CreditBureauFeatures or error if not found.
+     * @param userId The unique identifier of the user.
+     * @return ResponseEntity containing the latest CreditBureauFeatures object if found.
+     * @throws ResponseStatusException If the userId is invalid or no data is found.
      */
     @GetMapping("/api/features/users/{userId}")
     public ResponseEntity<CreditBureauFeatures> getLatestCreditBureauFeature(@PathVariable Long userId) {
@@ -85,6 +66,32 @@ public class FeatureExtractionController {
         return ResponseEntity.ok(latestFeature);
     }
 
+
+
+
+
+    //We are using this Object Creation class for the testing purpose only
+    //We will not use this objectCreation class in the main code we are just using it to make creditReport and creditReportResponse metadata by hard coding the input value
+    private final ObjectCreation objectCreation;
+
+    //We are calling this api for the testing purpose only
+    //In the main code we will directly implement the processAndSaveFeatures function by providing the creditReport and creditReportResponse
+    //That will be done while we are saving the creditReport and CreditReport metadata to the mongo repository
+    @PostMapping("/api/features/save")
+    public ResponseEntity<CreditBureauFeatures> saveCreditBureauFeatures() {
+
+        try {
+            CreditBureauFeatures savedFeatures = processAndSaveFeatures();
+            log.info("Feature extraction completed successfully. Returning response.");
+            return ResponseEntity.ok(savedFeatures);
+        } catch (Exception e) {
+            log.error("Error saving credit bureau features: {}", e.getMessage(), e);
+            throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Feature extraction failed");
+        }
+    }
+
+
+    //we will directly implement this method in the middle of the code
     private CreditBureauFeatures processAndSaveFeatures() {
         // Generate credit report data
         String creditReport = objectCreation.createCreditReport();

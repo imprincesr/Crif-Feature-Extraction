@@ -1,4 +1,4 @@
-package com.ninjacart.featureExtraction.model.featureModel;
+package com.ninjacart.featureExtraction.other.featureModel;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;

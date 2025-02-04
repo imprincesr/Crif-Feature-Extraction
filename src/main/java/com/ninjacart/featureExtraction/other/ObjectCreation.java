@@ -1,12 +1,15 @@
-package com.ninjacart.featureExtraction;
+package com.ninjacart.featureExtraction.other;
 
-import com.ninjacart.featureExtraction.model.featureModel.*;
+import com.ninjacart.featureExtraction.other.featureModel.*;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+
+//This object creation class we will not use in main code
+//We are making it just for the testing purpose only
 @Component
 public class ObjectCreation {
 

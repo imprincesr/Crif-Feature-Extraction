@@ -3,7 +3,7 @@ package com.ninjacart.featureExtraction.service;
 import com.ninjacart.featureExtraction.helper.FeatureExtractionHelper;
 import com.ninjacart.featureExtraction.helper.FeatureExtraction;
 import com.ninjacart.featureExtraction.model.CreditBureauFeatures;
-import com.ninjacart.featureExtraction.model.featureModel.CreditReportResponse;
+import com.ninjacart.featureExtraction.other.featureModel.CreditReportResponse;
 import com.ninjacart.featureExtraction.repository.FeatureExtractionRepository;
 import com.ninjacart.featureExtraction.exception.ResourceNotFoundException;
 import com.ninjacart.featureExtraction.exception.InvalidRequestException;

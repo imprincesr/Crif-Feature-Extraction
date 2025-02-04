@@ -4,7 +4,7 @@ package com.ninjacart.featureExtraction.helper;
 import com.jayway.jsonpath.DocumentContext;
 import com.jayway.jsonpath.JsonPath;
 import com.jayway.jsonpath.JsonPathException;
-import com.ninjacart.featureExtraction.model.featureModel.CreditReportResponse;
+import com.ninjacart.featureExtraction.other.featureModel.CreditReportResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
