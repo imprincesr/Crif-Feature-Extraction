@@ -1,6 +1,6 @@
 package com.ninjacart.featureExtraction.other;
 
-import com.ninjacart.featureExtraction.other.featureModel.*;
+import com.ninjacart.featureExtraction.other.CreditReportResponseModel.*;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;

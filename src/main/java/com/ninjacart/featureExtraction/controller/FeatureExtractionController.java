@@ -2,7 +2,7 @@ package com.ninjacart.featureExtraction.controller;
 
 import com.ninjacart.featureExtraction.other.ObjectCreation;
 import com.ninjacart.featureExtraction.model.CreditBureauFeatures;
-import com.ninjacart.featureExtraction.other.featureModel.CreditReportResponse;
+import com.ninjacart.featureExtraction.other.CreditReportResponseModel.CreditReportResponse;
 import com.ninjacart.featureExtraction.service.FeatureExtractionService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

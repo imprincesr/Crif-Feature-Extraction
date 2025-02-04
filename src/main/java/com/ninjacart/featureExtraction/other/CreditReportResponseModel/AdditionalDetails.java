@@ -1,4 +1,4 @@
-package com.ninjacart.featureExtraction.other.featureModel;
+package com.ninjacart.featureExtraction.other.CreditReportResponseModel;
 
 
 import lombok.AllArgsConstructor;
